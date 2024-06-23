@@ -1,0 +1,38 @@
+Installation / Running the Application Instructions:
+Install Python Python 3 from python.org.
+
+Create SMTP Server:
+
+Run SMTP server on local machine on port 25 or Postfix in OSX
+
+Run the Python Email Script emailagent.py:
+Open a terminal cd to the directory containing emailagent.py. Run the script with python3 emailagent.py
+
+DESIGN DOCUMENT
+This script is designed to send an email through an SMTP server using SMTP commands with TCP connection.
+
+The script first creates a TCP connection to the SMTP server (this scropt uses localhost on port 25).
+SMTP Commands available to user:
+
+HELO: Allows client to be known by SMTP server
+MAIL FROM: Identifies sender email address.
+RCPT TO: Identifies recipient email address.
+DATA: Start of message data.
+QUIT: Terminates SMTP session.
+
+The message transmission sends the email message data and ends it with a period on a new line to signal the end of the message data.
+
+Error Handling: 
+
+Checks server response to each command to confirm the communication is transmitting correctly.
+Prints message if expected responses are not received.
+
+Improvements to Security to be made in the future:
+This implementation does not use SSL/TLS, so it transmits data in plaintext. We should instead support encrypted connections like smtplib.SMTP_SSL or smtplib.SMTP with STARTTLS.
+
+
+This Python script sends an email using an SMTP server running on your local machine on port 25.
+
+
+
+
